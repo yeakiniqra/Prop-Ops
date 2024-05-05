@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Book Now
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Booking</title>
+</head>
+<body>
+    {% block content %}
+    
+
+    <div class="flex items-center justify-center p-12">
+
+        <div class="bg-gray-100 rounded-lg shadow-md p-4">
+            <!-- Image -->
+            <div class="mb-4">
+                <img src="{{ apartment.image.url }}" alt="Apartment Image" class="w-64 h-auto rounded-lg shadow-2xl">
+            </div>
+            
+            <!-- Information -->
+            <div>
+                <h3 class="text-xl font-semibold mb-2">Booked Apartment</h3>
+                <div class="flex flex-col">
+                    <p><span class="font-semibold">Apartment Name:</span> {{ apartment.name }}</p>
+                    <p><span class="font-semibold">Price:</span> {{ apartment.price }} lac</p>
+                    <p><span class="font-semibold">Area:</span> {{ apartment.sqft }} sqft</p>
+                    <p><span class="font-semibold">Address:</span> {{ apartment.address }}</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="mx-auto w-full max-w-[550px] bg-white">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="apartment_id" value="{{ apartment.id }}">
+                <div class="mb-5">
+                    <label for="phone" class="mb-3 block text-base font-medium text-[#07074D]">
+                        Username
+                    </label>
+                    <input type="text" name="username" id="phone" placeholder="{{ user.username }}"
+                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-gray-900 outline-none focus:border-[#6A64F1] focus:shadow-md" readonly/>
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="mb-3 block text-base font-medium text-[#07074D]">
+                        Email
+                    </label>
+                    <input type="email" name="email" id="email" placeholder="{{ user.email }}"
+                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#1e1e1f] outline-none focus:border-[#6A64F1] focus:shadow-md" readonly/>
+                </div>
+                <div class="mb-5">
+                    <label for="phone" class="mb-3 block text-base font-medium text-[#07074D]">
+                        Phone Number
+                    </label>
+                    <input type="text" name="phone" id="phone" placeholder="Enter your phone number"
+                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                </div>
+
+                <div class="mb-5">
+                    <label for="phone" class="mb-3 block text-base font-medium text-[#07074D]">
+                       Total Price
+                    </label>
+                    <input type="text" name="price" id="price" placeholder="{{ apartment.price }} lac"
+                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" readonly/>
+                </div>
+                
+                <div class="-mx-3 flex flex-wrap">
+                    <div class="w-full px-3 sm:w-1/2">
+                        <div class="mb-5">
+                            <label for="date" class="mb-3 block text-base font-medium text-[#07074D]">
+                                Booking Date
+                            </label>
+                            <input type="datetime-local" name="date" id="date"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                        </div>
+                    </div>
+                    
+                </div>
+            
+                <div>
+                    <button type="submit"
+                        class="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+                        Book Now
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    {% endblock %}
+</body>
+</html>

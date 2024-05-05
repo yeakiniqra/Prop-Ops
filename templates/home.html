@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block title %}
+PropOps-Your best property guide
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home</title>
+</head>
+<body>
+    {% block content %}
+    <!-- Hero Section -->
+    <div class="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
+        <div class="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1624395148974-f929045c9093?q=80&w=1534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Background Image" class="object-cover object-center w-full h-full" />
+          <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
+          <h1 class="text-5xl font-bold leading-tight mb-4" style="font-family: 'Martian Mono', monospace; font-optical-sizing: auto;">Empowering Apartment Booking</h1>
+          <p id="typewriter-text" class="text-lg text-gray-300 mb-8" style="font-family: Martian Mono, monospace ;"></p>
+          <a href="{% url 'apartment' %}" class="bg-blue-500 text-gray-100 hover:bg-blue-100 hover:text-gray-900 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Get Started</a>
+        </div>
+      </div>
+      
+        <!-- Features Section -->
+        <div class="max-w-screen-xl mx-auto py-8 px-4 lg:py-16 lg:px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl tracking-tight font-bold text-primary-800">Highlighted Features</h2>
+            </div>
+        
+            <div class="flex flex-col md:flex-row">
+               
+                <div class="mr-0 md:mr-8 mb-6 md:mb-0">
+                    <img class="w-96 h-96 mx-auto rounded-2xl" src="https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?q=80&w=1481&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="can_help_banner">
+                </div>
+                
+                
+                <div class="flex-1 flex flex-col sm:flex-row flex-wrap -mb-4 -mx-2">
+                    <div class="w-full sm:w-1/2 mb-4 px-2 ">
+                        <div class="h-full py-4 px-6 border border-green-500 border-t-0 border-l-0 rounded-br-xl">
+                            <h3 class="text-2xl font-bold text-md mb-6">Dynamic Personalization</h3>
+                            <p class="text-sm">Our platform leverages user data and behavior to provide a highly personalized experience, with dynamic content and product recommendations that change in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-1/2 mb-4 px-2 ">
+                        <div class="h-full py-4 px-6 border border-green-500 border-t-0 border-l-0 rounded-br-xl">
+                            <h3 class="text-2xl font-bold text-md mb-6">Your Best Choices</h3>
+                            <p class="text-sm"> Our website is designed with a mobile-first approach, offering a seamless browsing experience across all devices, including smartphones and tablets.</p>
+                        </div>
+                    </div>
+        
+                    <div class="w-full sm:w-1/2 mb-4 px-2 ">
+                        <div class="h-full py-4 px-6 border border-green-500 border-t-0 border-l-0 rounded-br-xl">
+                            <h3 class="text-2xl font-bold text-md mb-6">24/7 Customer Support</h3>
+                            <p class="text-sm">ur U.S.-based customer support team is available around the clock to answer any questions, resolve any issues, and provide helpful solutions. Whether it's through email, phone, or live chat, we're always here to support you.</p>
+                        </div>
+                    </div>
+        
+                    <div class="w-full sm:w-1/2 mb-4 px-2 ">
+                        <div class="h-full py-4 px-6 border border-green-500 border-t-0 border-l-0 rounded-br-xl">
+                            <h3 class="text-2xl font-bold text-md mb-6">Secure Payment Processing</h3>
+                            <p class="text-sm">We use cutting-edge security measures to protect our customers' sensitive information and ensure the safety of all transactions made on our site.</p>
+                        </div>
+                    </div>
+        
+        
+                </div>
+            </div>
+        </div>
+
+        <!-- FQA Section -->
+        <section id="faq" class="container relative mx-auto py-12 px-2">
+
+            <h3 class="mb-14 text-teal-900 text-center text-3xl font-semibold underline decoration-teal-200/80 lg:text-left xl:text-4xl">
+                Frequently Asked Questions
+            </h3>
+        
+        
+            <div class="my-6">
+                <div
+                    class="rounded-t-2xl bg-teal-600/80  w-full cursor-pointer select-none border-2 border-teal-600/30 px-4 py-4 text-gray-100 transition duration-300 hover:border-teal-600/80 hover:text-white">
+                    <h4 class="text-lg font-medium">How do I create an account on the website?</h4>
+                </div>
+                <div
+                    class="inline-flex w-full rounded-b-2xl border-x-2 border-b-2 border-dashed border-teal-600/30 bg-teal-100/50 px-4 py-4 text-teal-800">
+                    <h5>
+                        To create an account, click on the "Sign Up" button located at the top right corner of the homepage.
+                        <br>
+                        Fill out the required information, including your name, email address, and password.
+                        <br>
+                        Click "Create Account" to complete the registration process.
+                    </h5>
+                </div>
+            </div>
+        
+        
+            <div class="my-6">
+                <div
+                    class="rounded-t-2xl bg-teal-600/80 w-full cursor-pointer select-none border-2 border-teal-600/30 px-4 py-4 text-gray-100 transition duration-300 hover:border-teal-600/80 hover:text-white">
+                    <h4 class="text-lg font-medium">What payment methods do you accept?</h4>
+                </div>
+                <div
+                    class="inline-flex w-full rounded-b-2xl border-x-2 border-b-2 border-dashed border-teal-600/30 bg-teal-100/50 px-4 py-4 text-teal-800">
+                    <h5>We accept several payment methods for your convenience, including credit cards (Visa, Mastercard,
+                        American Express), PayPal, and Apple Pay.
+                    </h5>
+                </div>
+            </div>
+        
+        
+            <div class="my-6">
+                <div
+                    class="rounded-t-2xl bg-teal-600/80 w-full cursor-pointer select-none border-2 border-teal-600/30 px-4 py-4 text-gray-100 transition duration-300 hover:border-teal-600/80 hover:text-white">
+                    <h4 class="text-lg font-medium">How long does Booking take?</h4>
+                </div>
+                <div
+                    class="inline-flex w-full rounded-b-2xl border-x-2 border-b-2 border-dashed border-teal-600/30 bg-teal-100/50 px-4 py-4 text-teal-800">
+                    <h5>
+                        The booking process is quick and easy. Simply select the property you wish to book, choose your check-in and check-out dates, and proceed to payment.
+                        <br>
+                        We strive to process and ship orders within 1-2 business days after payment confirmation.
+                    </h5>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-200" style="font-family: 'Martian Mono', monospace; font-optical-sizing: auto;">
+            <div class="py-8 px-4 sm:px-12">
+              <div class="flex flex-wrap items-center justify-between">
+                <div class="w-full md:w-auto text-center md:text-left mb-6 md:mb-0">
+                  <a href="/" class="text-gray-700 hover:text-gray-900 font-extrabold text-2xl">
+                    <img src="https://i.postimg.cc/tgGNm4r3/propops-logo.png" alt="logo" class='w-24' />
+                  </a>
+                </div>
+                <div class="w-full md:w-auto text-center">
+                  <ul class="flex items-center justify-center flex-wrap gap-y-2 md:justify-end space-x-6">
+                    <li><a href="javascript:void(0)" class="text-gray-700 hover:text-gray-900 text-base">Home</a></li>
+                    <li><a href="javascript:void(0)" class="text-gray-700 hover:text-gray-900 text-base">About</a></li>
+                    <li><a href="javascript:void(0)" class="text-gray-700 hover:text-gray-900 text-base">Services</a></li>
+                    <li><a href="javascript:void(0)" class="text-gray-700 hover:text-gray-900 text-base">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="my-6 border-gray-300" />
+                <p class='text-center text-gray-700 text-base'>Copyright © 2024<a href='/'
+              target='_blank' class="hover:underline mx-1">PropOps</a>All Rights Reserved.</p>
+            </div>
+          </footer>
+
+          <script>
+            const text = "Discover amazing Properties and services that await you.";
+            const delay = 70;
+    
+            function typeWriterEffect(text, element, index = 0) {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(() => typeWriterEffect(text, element, index), delay);
+                }
+            }
+    
+            const targetElement = document.getElementById("typewriter-text");
+            typeWriterEffect(text, targetElement);
+        </script>
+{% endblock %}   
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign Up</title>
+</head>
+<body class="bg-white">
+    <div class="flex min-h-screen bg-white">
+        <div class="w-1/2 bg-cover md:block hidden" style="background-image:  url(https://images.unsplash.com/photo-1574259392081-dbe3c19cd15e?q=80&w=1452&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"></div>
+
+        <div class="md:w-1/2 max-w-lg mx-auto my-24 px-4 py-5 shadow-none">
+              
+            <div class="text-center">
+                <a href="/">
+                    <img src="https://i.postimg.cc/tgGNm4r3/propops-logo.png" alt="logo" class="w-24 mx-auto" />
+                </a>
+            </div>
+            
+            <div>    
+                <h1 class=" text-gray-800 text-2xl font-medium text-center">Create an account for free</h1>
+                <h3 class="p-1 text-gray-700 text-center">Join us for free & start Selling.</h3>
+            </div>
+            <form method="post" class="p-0">
+                {% csrf_token %}
+                <div class="mt-5">
+
+                    
+                    <input type="text" name="username" class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent " placeholder="Username">
+                </div>
+                <div class="mt-5">
+                    <input type="email" name="email" class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent " placeholder="Email">
+                </div>
+                <div class="mt-5">
+                    <input type="password" name="password" class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  " placeholder="Password">
+                </div>
+
+                <div class="mt-3 block text-sm md:font-sans text-xs text-gray-800">
+                    <input type="checkbox" class="inline-block border-0  ">
+                    <span display="inline" class="">By creating an account you are agreeing to our 
+                        <a class="" href="#" target="_blank" data-test="Link">
+                        <span class="underline ">Terms and Conditions</span> </a> and
+                    <a class="" href="#" target="_blank" data-test="Link">
+                        <span class="underline">Privacy Policy</span> </a>
+                    </span>
+                </div>
+
+                <div class="mt-10">
+                    <button type="submit" class="w-full p-3 text-white bg-blue-800 rounded-md hover:bg-blue-900">Sign up now</button>
+                </div>
+            </form>
+            <p><span class="block  p-5 text-center text-gray-800  text-md ">Already have an account?<a class="underline text-lg font-bold text-blue-900" href="{% url 'login' %}"> Log in</a></span></p>
+        </div>
+
+
+    </div>
+</body>
+</html>

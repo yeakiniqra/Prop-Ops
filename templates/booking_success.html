@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+Your Booking is Confirmed
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Booking Confirmed</title>
+</head>
+<body>
+    {% block content %}
+
+    <div class="h-screen flex flex-col justify-center items-center" style="font-family: 'Poppins', sans-serif; font-optical-sizing: auto;">
+        <h1 class="text-3xl font-bold mb-4 text-center">Booking Confirmation</h1>
+        <p class="text-lg mb-2">Dear <span class=" font-semibold text-purple-600">{{ user.username }},</span> </p>
+        <p class="text-lg mb-4">You will receive an email confirmation shortly at <span class="text-xl font-semibold text-purple-600">{{ user.email }}</span></p>
+        <p class="text-lg mb-4">Thank you for booking!!!</p>
+    
+        <a href="{% url 'home' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">Back to Home</a>
+    </div>
+    
+
+
+    {% endblock %}
+</body>
+</html>

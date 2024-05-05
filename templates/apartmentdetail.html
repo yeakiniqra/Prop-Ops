@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Apartment Details
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>See the details</title>
+</head>
+<body>
+    {% block content %}
+
+    <div class="max-w-4xl mx-auto px-4 py-8" style="font-family:'Titillium Web', sans-serif; font-optical-sizing: auto;">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">Apartment Detail</h1>
+        <div class="flex flex-col md:flex-row md:space-x-8">
+           
+            <div class="w-full md:w-1/2">
+                <img src="{{ apartment.image.url }}" alt="Apartment Image" class="w-full h-auto rounded-lg shadow-2xl">
+            </div>
+            
+            <div class="w-full md:w-1/2">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ apartment.name }}</h2>
+                <p class="text-gray-600 mb-2 font-bold">Description: <span class="text-gray-800 font-medium">{{ apartment.description }}</span></p>
+                <p class="text-gray-600 mb-2 font-bold">Price: <span class="text-gray-800 font-semibold">{{ apartment.price }} lac</span></p>
+                <p class="text-gray-600 mb-2 font-bold">Area: <span class="text-gray-800 font-semibold">{{ apartment.sqft }} sqft</span></p>
+                <p class="text-gray-600 mb-2 font-bold">Address: <span class="text-gray-800 font-semibold">{{ apartment.address }}</span></p>
+                <p class="text-gray-600 mb-2 font-bold">Bedrooms: <span class="text-gray-800 font-semibold">{{ apartment.bedrooms }} BHK</span></p>
+                <p class="text-gray-600 mb-2 font-bold">Bathrooms: <span class="text-gray-800 font-semibold">{{ apartment.bathrooms }}</span></p> 
+                <p class="text-gray-600 mb-2 font-bold">City: <span class="text-gray-800 font-semibold">{{ apartment.city }}</span></p>
+                <p class="text-gray-600 mb-2 font-bold">Registration number: <span class="text-gray-800 font-semibold">{{ apartment.registration_number }}</span></p>
+                
+                <div class="flex justify-center mt-4">
+                    <a href="{% url 'book_apartment' apartment.id %}" class="bg-gray-800 text-white py-2 px-40 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out">Book Now</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    {% endblock %}
+</body>
+</html>
