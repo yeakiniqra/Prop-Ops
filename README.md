@@ -8,6 +8,7 @@
     <li>Property Details: View comprehensive information about each property, including specifications, amenities, and location details.</li>
     <li>Property Alerts: Set up property alerts to receive notifications when new properties matching your criteria are listed.</li>
     <li>Booking Appartments: Schedule appointments to view properties in person/or book.</li>
+    <li>User Profile:User can Update their Profile info & Profile Picture</li>
 </ul>
 
 <h2>Made With 💻</h2>
@@ -70,6 +71,9 @@
 
 <h3>Property Details</h3>
 <img src="placeholder/propertydetails.png" alt="Product Details">
+
+<h3>User profile</h3>
+<img src="placeholder/userprofile.png" alt="User Profile">
 
 <h3>Booking</h3>
 <img src="placeholder/booking.png" alt="booking">

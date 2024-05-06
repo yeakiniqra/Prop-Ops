@@ -26,6 +26,7 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('login/', login, name='login'),
     path('signout/', signout, name='signout'),
+    path('profile/', profile, name='profile'),
     path('apartment/', apartment, name='apartment'),
     path('apartment_detail/<int:apartment_id>/', apartment_detail, name='apartment_detail'),
     path('book_apartment/<int:apartment_id>/', book_apartment, name='book_apartment'),

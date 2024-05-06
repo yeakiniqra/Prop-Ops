@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
-from .models import Apartment, Booking
+from .models import Apartment, Booking, UserProfile
 from django.utils import timezone
 
 # Create your views here.
@@ -61,6 +61,26 @@ def login(request):
 def signout(request):
     django_logout(request)
     return redirect('home') 
+
+@login_required
+def profile(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        image = request.FILES.get('image')
+
+        # Update profile fields
+        user_profile.phone = phone
+        user_profile.address = address
+        if image:
+            user_profile.image = image
+
+        user_profile.save()
+        messages.success(request, 'Profile updated successfully')
+
+    return render(request, 'profile.html', {'user_profile': user_profile})
 
 
 def apartment(request):

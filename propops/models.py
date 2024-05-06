@@ -27,3 +27,12 @@ class Booking(models.Model):
     
     def __str__(self):
         return self.user.username
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=15)
+    address = models.TextField()
+    image = models.ImageField(upload_to='profile/', default='default.png')
+
+    def __str__(self):
+        return self.user.username

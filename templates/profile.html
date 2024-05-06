@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User Profile
+{% endblock %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    {% block content %}
+
+
+    <div class="max-w-6xl mx-auto mt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Left column for profile picture -->
+            <div class="flex justify-center items-center bg-white shadow-xl rounded-lg overflow-hidden">
+                <div class="relative w-64 h-64 rounded-full overflow-hidden">
+                    {% if user_profile.image %}
+                    <img src="{{ user_profile.image.url }}" alt="Profile Image" class="w-full h-full object-cover">
+                {% else %}
+                    <img src="{% static 'default.jpg' %}" alt="Default Image" class="w-full h-full object-cover">
+                {% endif %}
+                </div>
+            </div>
+            
+            
+            
+            
+            <!-- Right column for user information -->
+            <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                <div class="p-4">
+                    <p class="uppercase tracking-wide text-sm font-bold text-gray-700">{{ user_profile.user.username }}</p>
+                    <p class="text-gray-700">{{ user_profile.user.email }}</p>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                            <input type="text" name="phone" id="phone" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ user_profile.phone }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Address:</label>
+                            <textarea name="address" id="address" rows="4" class="resize-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ user_profile.address }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="image" class="block text-gray-700 text-sm font-bold mb-2">Profile Picture:</label>
+                            <input type="file" name="image" id="image" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <p class="text-gray-600 text-xs mt-2">Upload your profile picture from here</p>
+                        </div>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    {% endblock %}
+</body>
+</html>
